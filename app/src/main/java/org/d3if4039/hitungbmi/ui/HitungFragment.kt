@@ -2,12 +2,12 @@ package org.d3if4039.hitungbmi.ui
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import org.d3if4039.hitungbmi.R
 import org.d3if4039.hitungbmi.data.KategoriBmi
 import org.d3if4039.hitungbmi.databinding.FragmentHitungBinding
@@ -16,6 +16,20 @@ class HitungFragment : Fragment() {
     private lateinit var binding: FragmentHitungBinding
     private lateinit var kategoriBmi: KategoriBmi
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.options_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_about) {
+            findNavController().navigate(
+                R.id.action_hitungFragment_to_aboutFragment)
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,9 +37,12 @@ class HitungFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentHitungBinding.inflate(layoutInflater, container, false)
         binding.button.setOnClickListener { hitungBmi() }
-        binding.saranButton.setOnClickListener { view: View -> view.findNavController().navigate(
-            HitungFragmentDirections.actionHitungFragmentToSaranFragment(kategoriBmi)
-        )}
+        binding.saranButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(
+                HitungFragmentDirections.actionHitungFragmentToSaranFragment(kategoriBmi)
+            )
+        }
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -56,8 +73,6 @@ class HitungFragment : Fragment() {
         binding.tvKategori.text = getString(R.string.kategori_x, kategori)
         binding.saranButton.visibility = View.VISIBLE
     }
-
-
 
 
     private fun getKategori(bmi: Float, male: Boolean): String {
