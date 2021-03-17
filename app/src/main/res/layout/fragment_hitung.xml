@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,27 +13,27 @@
             android:id="@+id/deskripsi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
             android:layout_margin="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif"
             android:text="@string/textview"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
             android:id="@+id/beratBadan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:labelFor="@+id/beratB"
             android:layout_marginStart="@dimen/horizontal_margin"
+            android:labelFor="@+id/beratB"
             android:text="@string/beratBadan"
             app:layout_constraintBottom_toBottomOf="@+id/beratB"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/beratB"/>
+            app:layout_constraintTop_toTopOf="@id/beratB" />
 
         <EditText
             android:id="@+id/beratB"
@@ -59,7 +58,7 @@
             android:text="@string/tinggiBadan"
             app:layout_constraintBottom_toBottomOf="@id/tinggiEditText"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tinggiEditText"/>
+            app:layout_constraintTop_toTopOf="@id/tinggiEditText" />
 
         <EditText
             android:id="@+id/tinggiEditText"
@@ -81,7 +80,7 @@
             android:text="@string/jenisK"
             app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/radioGroup"/>
+            app:layout_constraintTop_toTopOf="@+id/radioGroup" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -106,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/Wanita"/>
+                android:text="@string/Wanita" />
 
         </RadioGroup>
 
@@ -118,7 +117,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/hitung"
             app:layout_constraintStart_toStartOf="@+id/radioGroup"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup"/>
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 
         <Button
@@ -126,9 +125,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/clear"
+            app:layout_constraintStart_toEndOf="@+id/button"
             app:layout_constraintStart_toStartOf="@+id/button"
-            app:layout_constraintTop_toBottomOf="@+id/button"
-            app:layout_constraintStart_toEndOf="@+id/button"/>
+            app:layout_constraintTop_toBottomOf="@+id/button" />
 
         <View
             android:id="@+id/divider"
@@ -140,7 +139,7 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button"/>
+            app:layout_constraintTop_toBottomOf="@+id/button" />
 
         <TextView
             android:id="@+id/tv_bmi"
@@ -151,20 +150,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider"
-            tools:text="BMI: 24,09"/>
+            tools:text="BMI: 24,09" />
 
         <TextView
             android:id="@+id/tv_kategori"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_bmi"
-            tools:text="Kategori: Ideal"/>
+            tools:text="Kategori: Ideal" />
+
+        <Button
+            android:id="@+id/saranButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/lihat_saran"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_kategori"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
