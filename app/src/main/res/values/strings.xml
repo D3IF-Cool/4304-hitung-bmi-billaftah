@@ -33,4 +33,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bb_kg">Berat badan(Kg) </string>
+    <string name="tg_cm">Tinggi badan(Cm)  </string>
+    <string name="jenis">Jenis kelamin </string>
+    <string name="hasilBMI">BMI</string>
 </resources>

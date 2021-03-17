@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="@dimen/horizontal_margin"
     android:orientation="vertical"
     android:weightSum="2">
@@ -22,5 +23,49 @@
         android:gravity="center_horizontal"
         android:textSize="18sp"
         tools:text="@string/saran_ideal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_hasilBerat"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:text="@string/bb_kg"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_hasilTinggi"
+        android:textStyle="bold"
+        android:text="@string/tg_cm"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_jk"
+        android:textStyle="bold"
+        android:text="@string/jenis"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_bmii"
+        android:textStyle="bold"
+        android:text="@string/hasilBMI"
+        android:gravity="center_horizontal"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/sharing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="30dp"
+        android:src="@drawable/ic_share"
+        app:backgroundTint="#e5b3fe"
+        app:tint="#edf2fb"
+        tools:ignore="ContentDescription" />
 
 </LinearLayout>

@@ -40,8 +40,26 @@ class HitungFragment : Fragment() {
         binding = FragmentHitungBinding.inflate(layoutInflater, container, false)
         binding.button.setOnClickListener { hitungBmi() }
         binding.saranButton.setOnClickListener { view: View ->
+            val bundle = Bundle()
+            bundle.putString("iniBerat", binding.beratB.text.toString())
+            bundle.putString("iniTinggi", binding.tinggiB.text.toString())
+
+            var gender = ""
+            var katBmi = ""
+            when {
+                binding.priaRadioButton.isChecked -> gender = "Pria"
+                binding.wanitaRadioButton.isChecked -> gender = "Wanita"
+            }
+            bundle.putString("jenisKelamin", gender)
+            when(kategoriBmi) {
+                KategoriBmi.KURUS -> katBmi = "KURUS"
+                KategoriBmi.IDEAL -> katBmi = "IDEAL"
+                KategoriBmi.GEMUK -> katBmi = "GEMUK"
+            }
+            bundle.putString("iniBmi", katBmi)
+
             view.findNavController().navigate(
-                HitungFragmentDirections.actionHitungFragmentToSaranFragment(kategoriBmi)
+                R.id.action_hitungFragment_to_saranFragment, bundle
             )
         }
         binding.shareButton.setOnClickListener { shareData() }
