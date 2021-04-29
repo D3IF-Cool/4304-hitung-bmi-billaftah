@@ -3,19 +3,27 @@ package org.d3if4039.hitungbmi.ui.hitung
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import org.d3if4039.hitungbmi.R
 import org.d3if4039.hitungbmi.data.KategoriBmi
 import org.d3if4039.hitungbmi.databinding.FragmentHitungBinding
+import org.d3if4039.hitungbmi.db.BmiDb
 
 
 class HitungFragment : Fragment() {
-    private val viewModel: HitungViewModel by viewModels()
+    private val viewModel: HitungViewModel by lazy {
+        val db = BmiDb.getInstance(requireContext())
+        val factory =
+            HitungViewModelFactory(db.dao)
+        ViewModelProvider(this, factory).get(HitungViewModel::class.java)
+    }
     private lateinit var binding: FragmentHitungBinding
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -53,6 +61,16 @@ class HitungFragment : Fragment() {
                 buttonGroup.visibility = View.VISIBLE
             }
         }
+
+        viewModel.data.observe(
+            viewLifecycleOwner,
+            {
+                if (it == null) return@observe
+                Log.d(
+                    "HitungFragment",
+                    "Data tersimpan. ID = ${it.id}"
+                )
+            })
     }
 
     override fun onCreateView(
@@ -63,9 +81,9 @@ class HitungFragment : Fragment() {
         binding = FragmentHitungBinding.inflate(layoutInflater, container, false)
 
         with(binding) {
-            button.setOnClickListener {hitungBmi() }
-            saranButton.setOnClickListener {viewModel.mulaiNavigasi()}
-            shareButton.setOnClickListener {shareData()}
+            button.setOnClickListener { hitungBmi() }
+            saranButton.setOnClickListener { viewModel.mulaiNavigasi() }
+            shareButton.setOnClickListener { shareData() }
         }
         setHasOptionsMenu(true)
         return binding.root
