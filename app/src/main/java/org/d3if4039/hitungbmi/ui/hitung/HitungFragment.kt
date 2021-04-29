@@ -66,15 +66,6 @@ class HitungFragment : Fragment() {
             }
         }
 
-        viewModel.data.observe(
-            viewLifecycleOwner,
-            {
-                if (it == null) return@observe
-                Log.d(
-                    "HitungFragment",
-                    "Data tersimpan. ID = ${it.id}"
-                )
-            })
     }
 
     override fun onCreateView(
