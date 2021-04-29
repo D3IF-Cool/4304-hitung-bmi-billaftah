@@ -41,4 +41,8 @@
     <string name="histori">Histori</string>
     <string name="berat_x">BB: %1$.1f</string>
     <string name="tinggi_x">TB: %1$.1f</string>
+    <string name="hapus_histori">Hapus Histori</string>
+    <string name="konfirmasi_hapus">Hapus semua histori?</string>
+    <string name="hapus">Hapus</string>
+    <string name="batal">Batal</string>
 </resources>
