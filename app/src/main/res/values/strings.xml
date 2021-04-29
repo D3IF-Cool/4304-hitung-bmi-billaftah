@@ -37,4 +37,6 @@
     <string name="tg_cm">Tinggi badan(Cm)  </string>
     <string name="jenis">Jenis kelamin </string>
     <string name="hasilBMI">BMI</string>
+    <string name="belum_ada_data">Belum ada data</string>
+    <string name="histori">Histori</string>
 </resources>
